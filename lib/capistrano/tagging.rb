@@ -4,7 +4,7 @@ end
 
 require 'capistrano'
 
-Capistrano::Configuration.instance.load do
+Capistrano::Configuration.instance(:must_exist).load do
 
   after  "deploy:restart", "tagging:deploy"
   before "deploy:cleanup", "tagging:cleanup"
